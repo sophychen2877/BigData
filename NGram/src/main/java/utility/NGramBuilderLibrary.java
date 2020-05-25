@@ -21,6 +21,15 @@ public class NGramLibraryBuilder {
 
         /**
          * mapper read in text line by line
+         *  input:
+         *  i love big data
+         *  i love
+         *  {"i love", [1,1]}
+         * output:
+         * {"i love", 1}
+         * {"i love", 1}
+         * {"love big", 1}
+         * {"big data", 1}
          * @param key
          * @param value
          * @param context
@@ -57,7 +66,15 @@ public class NGramLibraryBuilder {
 
     public static class NGramReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         /**
-         *
+         * reducer that takes in the pair inputkey - list of occurence, and writes to a hdfs file with inputkey - sum of occurence
+         * input:
+         * {"i love", [1,1]}
+         * {"love big", 1}
+         * {"big data", 1}
+         * output:
+         * {"i love", 2}
+         * {"love big", 1}
+         * {"big data", 1}
          * @param key
          * @param values
          * @param context
