@@ -10,6 +10,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import java.io.IOException;
+import utility.*;
 
 public class Driver {
     public static void main(String[] args) throws ClassNotFoundException, IOException, InterruptedException {
@@ -34,4 +35,5 @@ public class Driver {
         TextInputFormat.setInputPaths(job1, new Path(args[0]));
         TextOutputFormat.setOutputPath(job1, new Path(args[1]));
         job1.waitForCompletion(true);
+    }
 }

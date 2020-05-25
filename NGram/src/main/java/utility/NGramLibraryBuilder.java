@@ -55,7 +55,7 @@ public class NGramLibraryBuilder {
             for (int i=0;i<arraylength-1;i++){
                 sb=new StringBuilder();
                 sb.append(words[i]);
-                for (n=1;n<noGram && i+n<arraylength;n++){
+                for (int n=1;n<noGram && i+n<arraylength;n++){
                     sb.append(" ");
                     sb.append(words[i+n]);
                     context.write(new Text(sb.toString().trim()),new IntWritable(1));
